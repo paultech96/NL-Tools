@@ -1,0 +1,7 @@
+#Geral
+node_modules/
+.env
+dist/
+uploads/
+#ignorar components de Estudo
+src/Contador.jsx
