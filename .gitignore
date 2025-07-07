@@ -1,7 +1,10 @@
-#Geral
+# === Ignorar pastas comuns ===
 node_modules/
-.env
 dist/
 uploads/
-#ignorar components de Estudo
+
+# === Arquivos sensíveis ===
+.env
+
+# === Ignorar componentes usados apenas para estudo ===
 src/Contador.jsx
