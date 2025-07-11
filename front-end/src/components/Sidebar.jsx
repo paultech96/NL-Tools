@@ -1,11 +1,11 @@
 import { useState } from 'react';
+import Logo from './Logo';
 import { Link, useLocation } from 'react-router-dom';
 import {
   ImageIcon,
   VideoIcon,
   EraserIcon,
   HomeIcon,
-  WrenchIcon,
   InfoIcon
 } from 'lucide-react';
 
@@ -41,42 +41,39 @@ function Sidebar() {
     >
       {/* TOPO */}
       <div>
-        <div
-          style={{
-            padding: '1rem',
-            fontWeight: 'bold',
-            display: 'flex',
-            alignItems: 'center'
-          }}
-        >
-          {expandido ? (
-            <>
-              <WrenchIcon size={18} style={{ marginRight: '0.5rem' }} />
-              NL Tools
-            </>
-          ) : (
-            <WrenchIcon size={24} />
-          )}
-        </div>
+<Logo expandido={expandido}/>
 
         {menu.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            style={{
-              textDecoration: 'none',
-              color: 'white',
-              padding: '0.8rem 1rem',
-              background: location.pathname === item.path ? '#0056b3' : 'transparent',
-              display: 'flex',
-              alignItems: 'center',
-              gap: expandido ? '1rem' : '0',
-              justifyContent: expandido ? 'flex-start' : 'center'
-            }}
-          >
-            {item.icon}
-            {expandido && <span>{item.label}</span>}
-          </Link>
+<Link
+  key={item.path}
+  to={item.path}
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: expandido ? '1rem' : '0',
+    justifyContent: expandido ? 'flex-start' : 'center',
+    textDecoration: 'none',
+    color: 'white',
+    padding: '0.8rem 1rem',
+    margin: '0.2rem 0.5rem',
+    borderRadius: '8px',
+    backgroundColor: location.pathname === item.path ? '#0056b3' : 'transparent',
+    transition: 'background 0.2s, transform 0.2s',
+    fontWeight: '500',
+    cursor: 'pointer'
+  }}
+  onMouseEnter={e => {
+    e.currentTarget.style.backgroundColor = location.pathname === item.path ? '#0056b3' : '#0069d9';
+    e.currentTarget.style.transform = 'scale(1.03)';
+  }}
+  onMouseLeave={e => {
+    e.currentTarget.style.backgroundColor = location.pathname === item.path ? '#0056b3' : 'transparent';
+    e.currentTarget.style.transform = 'scale(1)';
+  }}
+>
+  {item.icon}
+  {expandido && <span>{item.label}</span>}
+</Link>
         ))}
       </div>
 
