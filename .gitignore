@@ -1,10 +1,23 @@
-# === Ignorar pastas comuns ===
+# Node
 node_modules/
-dist/
-uploads/
-
-# === Arquivos sensíveis ===
 .env
+dist/
+build/
+uploads/
+converted/
+__pycache__/
+*.pyc
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Vite / React
+.vite/
+.DS_Store
+*.local
+*.swp
 
 # === Ignorar componentes usados apenas para estudo ===
 src/Contador.jsx
